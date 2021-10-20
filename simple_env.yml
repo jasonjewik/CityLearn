@@ -1,0 +1,10 @@
+name: citylearn
+channels:
+  - defaults
+dependencies:
+  - pandas==0.24.2
+  - numpy==1.16.4
+  - pytorch==1.1.0
+  - cudatoolkit=10.0
+  - jupyter
+prefix: /home/school/anaconda3/envs/citylearn
