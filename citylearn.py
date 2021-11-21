@@ -499,13 +499,15 @@ class CityLearn(gym.Env):
                                 s.append(building.sim_results[state_name][self.time_step])
                             elif state_name == 'net_electricity_consumption':
                                 s.append(building.current_net_electricity_demand)
-                            elif state_name != 'cooling_storage_soc' and state_name != 'dhw_storage_soc':
+                            elif state_name != 'cooling_storage_soc' and state_name != 'dhw_storage_soc' and state_name != 'electrical_storage_soc':
                                 s.append(building.sim_results[state_name][self.time_step])
                                 s_appended.append(state_name)
                             elif state_name == 'cooling_storage_soc':
                                 s.append(building.cooling_storage._soc/building.cooling_storage.capacity)
                             elif state_name == 'dhw_storage_soc':
                                 s.append(building.dhw_storage._soc/building.dhw_storage.capacity)
+                            elif state_name == 'electrical_storage_soc':
+                                s.append(building.electrical_storage._soc/building.electrical_storage.capacity)
             self.state = np.array(s)
             rewards = reward_function_sa(self.buildings_net_electricity_demand)
             self.cumulated_reward_episode += rewards
@@ -588,12 +590,14 @@ class CityLearn(gym.Env):
                                 s.append(building.sim_results[state_name][self.time_step])
                             elif state_name == 'net_electricity_consumption':
                                 s.append(building.current_net_electricity_demand)
-                            elif state_name != 'cooling_storage_soc' and state_name != 'dhw_storage_soc':
+                            elif state_name != 'cooling_storage_soc' and state_name != 'dhw_storage_soc' and state_name != 'electrical_storage_soc':
                                 s.append(building.sim_results[state_name][self.time_step])
                                 s_appended.append(state_name)
                             elif state_name == 'cooling_storage_soc':
                                 s.append(0.0)
                             elif state_name == 'dhw_storage_soc':
+                                s.append(0.0)
+                            elif state_name == 'electrical_storage_soc':
                                 s.append(0.0)
             self.state = np.array(s)
         else:
