@@ -1,12 +1,13 @@
-name: citylearn
+name: rllib
 channels:
+  - pytorch
+  - menpo
+  - conda-forge
   - defaults
 dependencies:
+  - python=3.8
+  - autopep8
   - pytorch
-  - cudatoolkit
-  - pandas
-  - numpy
   - matplotlib
-  - gym
   - jupyter
-prefix: /home/school/anaconda3/envs/citylearn
+prefix: C:\Users\jewik\miniconda3\envs\rllib
